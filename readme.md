@@ -6,18 +6,21 @@ The main creators include:
   
   <tr>
     <td>中文名</td>
-    <td>name</td>
+    <td>Name</td>
     <td>E-mail</td>
+    <td>Blog</td>
   </tr>
   
   <tr>
     <td>李硕</td>
-    <td>Shuo Li</td>
+    <td>Biols</td>
     <td>shiyeyishang@outlook.com</td>
+    <td>https://bioinformls.com</td>
   </tr>
   
   <tr>
     <td>百变小樱李</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
