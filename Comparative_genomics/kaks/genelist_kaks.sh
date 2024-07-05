@@ -21,6 +21,7 @@ all_cds=$5
 ### software
 seqtk=/bin/seqtk
 ParaAT=/bin/ParaAT.pl
+${blast_shell}=blast.sh
 
 ### step1: get gene list
 cp ${GO_term} ${GO_term}.all.gene.list
@@ -30,7 +31,7 @@ ${seqtk} subseq ${all_cds} ${GO_term}.all.gene.list > ${GO_term}.all.gene.list.c
 ${seqtk} subseq ${all_pep} ${GO_term}.all.gene.list > ${GO_term}.all.gene.list.pep
 
 ### step3: blastn and get gene pair
-sh /dellfsqd2/ST_OCEAN/USER/lishuo1/00_tools/BLAST/bidui.sh ${GO_term}.all.gene.list.cds ${GO_term}.all.gene.list.cds nucl blastn result.txt ${cpu}
+sh  ${GO_term}.all.gene.list.cds ${GO_term}.all.gene.list.cds nucl blastn result.txt ${cpu}
 grep -v "#" result.txt | awk '$9/$8>0.6||$9/$7>0.6' | cut -f 1,4 | awk '$1!=$2' | awk '!a[$1,$2] && !a[$2,$1]++' > ${GO_term}.gene.pair
 
 ### step4: make cpu file
