@@ -8,7 +8,7 @@ The main creators include:
     <td>中文名</td>
     <td>Name</td>
     <td>E-mail</td>
-    <td>Blog</td>
+    <td>Blog / Other </td>
   </tr>
   
   <tr>
