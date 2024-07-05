@@ -49,7 +49,7 @@ The main creators include:
 
   <tr>
     <td>姜淑泓</td>
-    <td>soho</td>
+    <td>sohojiang</td>
     <td></td>
     <td></td>
   </tr>
