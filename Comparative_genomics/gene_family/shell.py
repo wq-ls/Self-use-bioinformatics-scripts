@@ -1,4 +1,4 @@
-#!/dellfsqd2/ST_OCEAN/USER/hanshenglei/Anaconda3/bin/python
+#! python
 # -*- coding: utf-8 -*-
 
 import argparse
@@ -99,7 +99,7 @@ def shell (gene_protein_fasta, genome_gff3, genome_fa, hmm_file, rna_data_list, 
                  + f"grep 'CDS' ./00_data/{genome_gff3}" + "| cut -f9 | cut -d ';' -f1 | cut -d '=' -f2 | sort | uniq -c|awk '{print $2, $1}' > ./1_identify_gene_family/04_final_gene_family/gene_cds_number \n"
                  + "grep -f  ./1_identify_gene_family/04_final_gene_family/final_gene_id ./1_identify_gene_family/04_final_gene_family/gene_cds_number |sort  >./1_identify_gene_family/04_final_gene_family/final_gene_cds_number \n"
                   ### step6: get final_gene_domain
-                 + "/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/conda/bin/perl /dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/PfamScan/pfam_scan.pl -fasta ./1_identify_gene_family/04_final_gene_family/final_gene_protein -dir /dellfsqd2/ST_OCEAN/USER/lishuo1/06_database/Pfam/ > ./1_identify_gene_family/04_final_gene_family/final_gene_domain ")
+                 + "pfam_scan.pl -fasta ./1_identify_gene_family/04_final_gene_family/final_gene_protein -dir /dellfsqd2/ST_OCEAN/USER/lishuo1/06_database/Pfam/ > ./1_identify_gene_family/04_final_gene_family/final_gene_domain ")
 
     with open('05_phylogenetic.sh', 'w') as f5:
         os.system("mkdir -p ./2_phylogenetic \n")
@@ -110,7 +110,7 @@ def shell (gene_protein_fasta, genome_gff3, genome_fa, hmm_file, rna_data_list, 
                  + "trimal -in ./2_phylogenetic/gene_protein.muscle -out ./2_phylogenetic/gene_protein.muscle.trimal -automated1 \n"
                  + "grep '^>' ./2_phylogenetic/gene_protein.muscle | sed 's/>//' > ./2_phylogenetic/gene_protein.muscle.name \n"
                   ### step3: iqtree2 (get .treefile)
-                 + "/dellfsqd2/ST_OCEAN/USER/lishuo1/00_tools/iqtree2 -s ./2_phylogenetic/gene_protein.muscle.trimal -m MFP -nt AUTO -B 1000 > ./2_phylogenetic/iqtree")
+                 + "iqtree2 -s ./2_phylogenetic/gene_protein.muscle.trimal -m MFP -nt AUTO -B 1000 > ./2_phylogenetic/iqtree")
     if rna_data_list == "None":
         return
     else:
