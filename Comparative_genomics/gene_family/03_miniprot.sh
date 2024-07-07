@@ -1,0 +1,7 @@
+blastp -query ./00_data/TLR_protein.fasta -subject ./1_identify_gene_family/result/02_target_gene.pep -evalue 1e-05 -seg yes -outfmt "6 qseqid"| sort -u > ./1_identify_gene_family/03_miniprot/new_gene_protein_id 
+seqkit grep -f ./1_identify_gene_family/03_miniprot/new_gene_protein_id ./00_data/TLR_protein.fasta > ./1_identify_gene_family/03_miniprot/new_gene_protein_fasta 
+cat ./1_identify_gene_family/result/02_target_gene.pep >> ./1_identify_gene_family/03_miniprot/new_gene_protein_fasta 
+miniprot --gff -I ./00_data/C_albu.fa ./1_identify_gene_family/03_miniprot/new_gene_protein_fasta > ./1_identify_gene_family/03_miniprot/miniprot.gff 
+awk '{if($0 ~ /^##/ && $11 != "" && $12 != "" && ($11 + 0)/($12 + 0) > 0.8) {found=1; next} else {if ($0 ~ /^##/) {found = 0}}} /mRNA/ {if (found == 1) print} /CDS/ {if (found == 1) print}' ./1_identify_gene_family/03_miniprot/miniprot.gff > ./1_identify_gene_family/03_miniprot/miniprot.filt.gff 
+gffread -C -G -K -Q -Y -M -d dup ./1_identify_gene_family/03_miniprot/miniprot.filt.gff > ./1_identify_gene_family/03_miniprot/miniprot.filt.gff2
+gffread ./1_identify_gene_family/03_miniprot/miniprot.filt.gff2 -g ./00_data/C_albu.fa -x ./1_identify_gene_family/03_miniprot/pre.cds
