@@ -99,7 +99,7 @@ def shell (gene_protein_fasta, genome_gff3, genome_fa, hmm_file, rna_data_list, 
                  + f"grep 'CDS' ./00_data/{genome_gff3}" + "| cut -f9 | cut -d ';' -f1 | cut -d '=' -f2 | sort | uniq -c|awk '{print $2, $1}' > ./1_identify_gene_family/04_final_gene_family/gene_cds_number \n"
                  + "grep -f  ./1_identify_gene_family/04_final_gene_family/final_gene_id ./1_identify_gene_family/04_final_gene_family/gene_cds_number |sort  >./1_identify_gene_family/04_final_gene_family/final_gene_cds_number \n"
                   ### step6: get final_gene_domain
-                 + "pfam_scan.pl -fasta ./1_identify_gene_family/04_final_gene_family/final_gene_protein -dir /dellfsqd2/ST_OCEAN/USER/lishuo1/06_database/Pfam/ > ./1_identify_gene_family/04_final_gene_family/final_gene_domain ")
+                 + "pfam_scan.pl -fasta ./1_identify_gene_family/04_final_gene_family/final_gene_protein -dir ./Pfam/ > ./1_identify_gene_family/04_final_gene_family/final_gene_domain ")
 
     with open('05_phylogenetic.sh', 'w') as f5:
         os.system("mkdir -p ./2_phylogenetic \n")
