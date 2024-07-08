@@ -1,6 +1,3 @@
-#!/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/miniconda3/envs/R-3.6/bin/Rscript
-.libPaths("/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/miniconda3/envs/R-3.6/lib/R/library/")
-
 ## Make Dot Plot with Percent Divergence on color scale
 suppressPackageStartupMessages(library(optparse))
 suppressPackageStartupMessages(library(ggplot2))
@@ -48,15 +45,6 @@ options(error=traceback)
 
 parser <- OptionParser(usage = "%prog -i alignments.coords -o out [options]",option_list=option_list)
 opt = parse_args(parser)
-
-# rm(list=ls())
-# setwd("~/GitHubLocal/dotPlotly/testing/minimap_paf/")
-# opt = list(input_filename="susie_ggo_grch38.minimap0.txt",
-#            output_filename="testOut.allRef",
-#            min_align = 500, min_query_aln = 500000,
-#            keep_ref=23, 
-#            similarity=T, h_lines=T, interactive=F, plot_size=15, on_target = T, v=FALSE)
-
 
 if(opt$v){
   cat(paste0("PARAMETERS:\ninput (-i): ", opt$input_filename,"\n"))
