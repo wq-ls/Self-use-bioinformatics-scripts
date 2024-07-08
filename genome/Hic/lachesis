@@ -1,3 +1,4 @@
+
 lachesis 是一个比较老的挂载hic软件，能够有效聚类和排序，现在发表的大部分HiC挂载文章都出自于它。但不适合多倍体和高杂合度的基因组，2017年就不再更新。
 lachesis极其难安装建议直接下载docker镜像
 1、lachesis镜像下载
@@ -13,7 +14,7 @@ perl PreprocessSAMs.pl prefix.bam assembly.fa # 最后生成prefix.REduced.paire
 /usr/bin/singularity exec --bind  /path/：/path/   ./lachesis.sif lachesis  test_case.ini
 -----------------------------------------------------------------------------------------------------------------------
 test_case.ini为配置文件，可以在lachesis的github中自行下载并自行修改，以下为我的配置文件范例(需要更改的参数会在后面有#注释，其他为默认参数)
-
+-----------------------------------------------------------------------------------------------------------------------
 # Species.  If assembling a species for which there is already a reference, use "human" or "mouse" or "fly"; these names are hard-wired into the code.
 # If assembling any other species (including e.g., other Drosophila species), DO NOT use these strings.
 SPECIES = fish   #写自己实际的物种名称就可以
@@ -116,3 +117,4 @@ REPORT_EXCLUDED_GROUPS = -1
 REPORT_QUALITY_FILTER = 1
 # Boolean (0/1).  If 1, create a Hi-C heatmap of the overall result via the script heatmap.MWAH.R.  This is a useful reference-free evaluation.
 REPORT_DRAW_HEATMAP = 1 
+-------------------------------------------------------------------------------------------------------------------
