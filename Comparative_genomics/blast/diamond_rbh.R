@@ -1,8 +1,3 @@
-#!/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/miniconda3/envs/R-4.0/bin/Rscript
-## lishuo
-## 2022.07.27
-
-.libPaths("/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/miniconda3/envs/R-4.0/lib/R/library/")
 
 library(optparse)
 option_list <- list(
@@ -57,7 +52,7 @@ rec_best_hits <- diamond_reciprocal_best_hits(
   max_target_seqs = max,
   cores = cpu,
   hard_mask = TRUE,
-  diamond_exec_path = "/dellfsqd2/ST_OCEAN/USER/lishuo1/00_tools",
+  diamond_exec_path = "",
   add_makedb_options = NULL,
   add_diamond_options = NULL,
   output_path = getwd()
