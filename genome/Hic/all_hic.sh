@@ -18,3 +18,6 @@ Usage: ALLHiC_pip.sh -r reference -1 R1.fq -2 R2.fq -k group_count [-e enzyme] [
           -t: threads, default: 10
           -b: bin_size for hic heatmap, can be divided with comma, default: 500k
 -------------------------------------------------
+脚本报错的话就选择分部执行
+一般报错原因是因为sorted.bam文件中有多余HD注释行可以用以下命令继续处理，然后再继续执行后面步骤即可：
+samtools view -h sorted.bam | sed -e '/@HD\tVN:1.5\tSO:unsorted\tGO:query/d' | samtools view -b -o deal_sorted.bam
