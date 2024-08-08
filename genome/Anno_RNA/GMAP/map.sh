@@ -9,13 +9,13 @@ total_intron_length=100000
 output_format=gff3_gene
 output_name=GMAP
 
-### To Avoid Program received signal SIGSEGV erro, split transcript fasta
+### In order to handle program received signal SIGSEGV erro alone, split transcript fasta
 
 fastaDeal.pl --cuts 100 ${transcript}
 ls ${transcript}.cut > id
 for i in $(cat id)
 do
-    echo "/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/gmap-2021-08-25/bin/gmap -D $reference -d ${species}_reference --min-identity ${min_identity} --canonical-mode 2 --max-intronlength-middle ${max_intronlength_middle} --totallength ${total_intron_length} -t $cpu --input-buffer-size=20 --output-buffer-size=20 --allow-close-indels=2 --tolerant --truncate --split-large-introns --suboptimal-score=0.9 -f $output_format $PWD/${transcript}.cut/${i} > $PWD/${transcript}.cut/${output_name}.${i}.gff " >> all.run.sh
+    echo "/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/gmap-2021-08-25/bin/gmap -D $reference -d ${species}_reference --min-identity ${min_identity} --canonical-mode 2 --max-intronlength-middle ${max_intronlength_middle} --totallength ${total_intron_length} -t $cpu --input-buffer-size=20 --output-buffer-size=20 --allow-close-indels=2 --tolerant --truncate --split-large-introns --suboptimal-score=0.9 -f $output_format $PWD/${transcript}.cut/${i} > $PWD/${transcript}.cut/${output_name}.${i}.gff 2> $PWD/${transcript}.cut/${output_name}.${i}.log" >> all.run.sh
 done
 
 ### Do not deliver tasks in parallel
