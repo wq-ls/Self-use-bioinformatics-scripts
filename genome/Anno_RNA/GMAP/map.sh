@@ -15,9 +15,9 @@ fastaDeal.pl --cuts 100 ${transcript}
 ls ${transcript}.cut > id
 for i in $(cat id)
 do
-    echo "/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/gmap-2021-08-25/bin/gmap -D $reference -d ${species}_reference 
-    --min-identity ${min_identity} --canonical-mode 2 --max-intronlength-middle ${max_intronlength_middle} --totallength ${total_intron_length}
-    -t $cpu --input-buffer-size=20 --output-buffer-size=20 --allow-close-indels=2 
+    echo "/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/gmap-2021-08-25/bin/gmap -D $reference -d ${species}_reference \
+    --min-identity ${min_identity} --canonical-mode 2 --max-intronlength-middle ${max_intronlength_middle} --totallength ${total_intron_length} \
+    -t $cpu --input-buffer-size=20 --output-buffer-size=20 --allow-close-indels=2 \
     --tolerant --truncate --split-large-introns --suboptimal-score=0.9 -f $output_format $PWD/${transcript}.cut/${i} > $PWD/${transcript}.cut/${output_name}.${i}.gff " >> all.run.sh
 done
 
