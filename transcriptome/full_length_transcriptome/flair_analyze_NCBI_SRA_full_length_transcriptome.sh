@@ -12,4 +12,4 @@ flair align -r ${fq} -g ${genome} -t ${cpu} --junction_bed out_junction.bed
 flair correct -q flair.aligned.bed -g ${genome} --threads ${cpu} -f ${gtf}
 
 [ -d temp_flair ] || mkdir temp_flair
-flair collapse-range -r flair.aligned.bam -q flair_all_corrected.bed -g ${genome} -f ${gtf} -o flair.output --temp_dir temp_flair --threads ${cpu}
+flair collapse -r ${fq} -q flair_all_corrected.bed -g ${genome} -o flair.output --temp_dir temp_flair -t ${cpu} --keep_intermediate -f ${gtf} --isoformtss --no_gtf_end_adjustment --max_ends 5 --check_splice --longshot_bam flair.aligned.bam
