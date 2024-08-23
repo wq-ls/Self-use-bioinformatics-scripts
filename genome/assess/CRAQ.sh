@@ -19,4 +19,4 @@ perl /01_soft/CRAQ/src/regional_AQI.pl ${outdir}/seq.size ${window} ${window} ${
 python /01_soft/CRAQ/src/CRAQcircos.py --genome_size ${outdir}/seq.size --genome_error_loc ${outdir}/runAQI_out/CRE_CSE.bed --genome_score ${outdir}/runAQI_out/plot_AQI.out --output ${outdir}/runAQI_out/plot_AQI.out.pdf
 
 ### !!!! remove intermediate files !!!!
-# rm -rf ${outdir}/SRout ${outdir}/LRout
+# rm -rf ${outdir}/SRout/*sort* ${outdir}/SRout/*tmp ${outdir}/SRout/Nonmap.loc ${outdir}/LRout/*sort* ${outdir}/LRout/Nonmap.loc
