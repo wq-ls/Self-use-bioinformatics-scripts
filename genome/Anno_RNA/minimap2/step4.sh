@@ -1,6 +1,15 @@
 export PATH=/01_software/TransDecoder-TransDecoder-v5.5.0/util/:$PATH
 export PERL5LIB=/01_software/TransDecoder-TransDecoder-v5.5.0/PerlLib:$PERL5LIB
 
+###
+cat pfam.qsub/pfam.1.domtblout > pfam.domtblout
+for i in `seq 2 200`
+do
+    less pfam.qsub/pfam.${i}.domtblout | grep -v '^#' >> pfam.domtblout
+done
+cat blast.qsub/*outfmt6 | awk '$3>60' > blastp.outfmt6
+
+###
 transcript=transcripts.fasta
 /01_software/TransDecoder-TransDecoder-v5.5.0/TransDecoder.Predict -t ${transcript} --retain_pfam_hits pfam.domtblout --retain_blastp_hits blastp.outfmt6
 
