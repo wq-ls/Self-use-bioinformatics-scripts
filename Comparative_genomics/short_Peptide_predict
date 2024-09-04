@@ -1,0 +1,13 @@
+source activate /home_micromamba/envs/DeepPeptide
+
+###
+ln -s /01_soft/DeepPeptide/predictor/* ./
+
+fasta=FBG.correct.gff.pep
+outdir=DeepPeptide
+batch_size=100	## bigger batch_size, bigger memory
+
+mkdir ${outdir}
+
+python /01_soft/DeepPeptide/predictor/predict.py --fastafile ${fasta} --output_dir ${outdir} --esm esm2 --esm_pt /01_soft/DeepPeptide/predictor/checkpoints/esm2_t33_650M_UR50D.pt
+#python /01_soft/DeepPeptide/predictor/predict.py --fastafile ${fasta} --output_dir ${outdir} --esm esm1b --esm_pt /01_soft/DeepPeptide/predictor/checkpoints/esm1b_t33_650M_UR50S.pt
