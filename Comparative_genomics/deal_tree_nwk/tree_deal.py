@@ -1,4 +1,4 @@
-#!/dellfsqd2/ST_OCEAN/USER/lishuo11/09_test/zz_tmp/home_micromamba/envs/pixy/bin/python
+#!/micromamba/envs/pixy/bin/python
 """TM - newick tree operation tool, including reroot, ladderize, cladogram, rename, prune, show
 
 usage: {f} [-r [-o og1,og2]] [-l <0/1>] [-c] [-s] [-t] [--rename <file> [--rc 1,2]] [--prune <file> [--pc 1]] tree
@@ -33,7 +33,7 @@ OPTIONS:
 
 import sys
 import getopt
-sys.path.append('/dellfsqd2/ST_OCEAN/USER/lishuo11/09_test/zz_tmp/home_micromamba/envs/pixy/lib/python3.8/site-packages/')
+sys.path.append('/micromamba/envs/pixy/lib/python3.8/site-packages/')
 from ete3 import Tree
 
 class Options(object):
