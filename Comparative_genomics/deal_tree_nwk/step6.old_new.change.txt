@@ -1,0 +1,5 @@
+Homo	ren_1a
+Pongo	Pongo
+Macaca	Macaca
+Ateles	Ateles
+Galago	Galago
