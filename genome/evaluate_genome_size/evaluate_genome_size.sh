@@ -9,7 +9,7 @@ cpu=30
 ploidy=2
 read_len=150
 
-## scount k-mers
+## count k-mers
 jellyfish count -m ${mer_len} -s 1000000000 -t ${cpu} -C -o ${prefix}.count.jf <(pigz -p 5 -d -c ${NGS_fq1}) <(pigz -p 5 -d -c ${NGS_fq2})
 #jellyfish count -m ${mer_len} -s 1000000000 -t ${cpu} -C -o ${prefix}.count *.fq
 
