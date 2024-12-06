@@ -14,7 +14,7 @@ workdir=$PWD/workdir
 
 [ -d egapx_config ] || mkdir -p egapx_config && cp /01_soft/egapx/egapx_config/singularity.config egapx_config/singularity.config
 
-### the cache file you can download from 
+### the cache file you can download from https://ftp.ncbi.nlm.nih.gov/genomes/TOOLS/EGAP/support_data/
 python3 ${main_script} ${file_path} -e singularity -w ${workdir} -o ${outdir} -lc /01_soft/egapx-0.3.0-alpha/support_data
 
 ## rm tmp
