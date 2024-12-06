@@ -1,0 +1,8 @@
+## one split nead at least 5 process
+python3 pilon_pipeline.py \
+    --genome your_genome.fasta \
+    --reads1 reads_1.fq \
+    --reads2 reads_2.fq \
+    --parts N \
+    --fix all \
+    --output pilon_output
