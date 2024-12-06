@@ -1,0 +1,6 @@
+genome: /test/data/genome.fa
+taxid: 34787
+annotation_provider: ABCD
+annotation_name_prefix: test
+locus_tag_prefix: test
+# proteins: /test/data/train.pep
