@@ -15,7 +15,7 @@ rm pep.gff pep.agat.log
 ## get Gene XP XM symbol description
 awk '$3=="gene"' ${species}.UTR.gff | cut -f 9 | sed 's/;/\t/g' | sed 's/ID=gene-//1;s/Dbxref=GeneID://1;s/Name=//1' | cut -f 2,3 > geneID_name
 awk '$3=="CDS"' ${species}.UTR.gff | cut -f 9 | sed 's/;/\t/g' | sed 's/ID=cds-//1;s/Parent=rna-//1' | sed 's/,/\t/1' | awk '{if ($3~/GeneID/) print $3"\t"$1"\t"$2; else print $4"\t"$1"\t"$2}' | sed 's/Dbxref=GeneID://g' | sed 's/GeneID://g' | awk -F "\t" 'NR==FNR{a[$1]=$2}NR!=FNR{print $0"\t"a[$1]}' geneID_name - | awk '!a[$0]++' > tmp1
-awk '{print $2"\t"$0}' tmp1 | awk -F "\t" 'NR==FNR{a[$1]=$2}NR!=FNR{print $0"\t"a[$1]}' <(grep ">" protein.faa | sed 's/>//1;s/ /\t/1;s/\[/\t/1' | cut -f 1,2) - | cut -f 2- > NCBI.gene.match.txt
+awk '{print $2"\t"$0}' tmp1 | awk -F "\t" 'NR==FNR{a[$1]=$2}NR!=FNR{print $0"\t"a[$1]}' <(grep ">" ${pep} | sed 's/>//1;s/ /\t/1;s/\[/\t/1' | cut -f 1,2) - | cut -f 2- > NCBI.gene.match.txt
 rm tmp1 geneID_name
 
 ## get simple gff cds pep
