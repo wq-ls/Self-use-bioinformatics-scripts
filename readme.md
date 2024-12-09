@@ -16,7 +16,7 @@ The main creators include:
     <td>李硕</td>
     <td>Biols</td>
     <td>shiyeyishang@outlook.com</td>
-    <td>https://bioinformls.com</td>
+    <td>https://bioinformls.com  https://www.researchgate.net/profile/Shuo_Li37 </td>
   </tr>
   
   <tr>
