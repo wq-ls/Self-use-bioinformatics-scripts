@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+### By Sunshai (sunhai@genomic.cn)
+
 use strict;
 use warnings;
 
@@ -10,7 +12,7 @@ my %end;
 while (<FL>) {
     chomp;
     my @tmp = split;
-
+    
     if ($tmp[2] eq 'CDS') {
         my $id = $1 if ($tmp[8] =~ /Parent=([^;\s]+)/);
         #print "$id\n";
@@ -32,8 +34,8 @@ while (<FL>) {
     if ($tmp[2] eq 'mRNA') {
       my $id = $1 if ($tmp[8] =~ /ID=([^;\s]+)/);
         next if (!exists $end{$id}{'start'});
-        $tmp[3] = $end{$id}{'start'};
-        $tmp[4] = $end{$id}{'end'};
+        $tmp[3] = $end{$id}{'start'};       
+        $tmp[4] = $end{$id}{'end'};       
     };
     print FLS join("\t", @tmp), "\n";
 };
