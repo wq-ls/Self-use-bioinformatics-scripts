@@ -11,7 +11,8 @@ gaf=GCF_001858045.2_O_niloticus_UMD_NMBU_gene_ontology.gaf
 
 ## get longest and contain UTR gff file
 grep -e "gene_biotype=protein_coding" -e "gbkey=mRNA;gene" -e "protein_id=" ${NCBI_gff} > pep.gff
-/usr/bin/singularity run --bind $PWD:$PWD /dellfsqd2/ST_OCEAN/USER/lishuo11/01_soft/singularity_all/Agata.sif agat_sp_keep_longest_isoform.pl -gff pep.gff -o ${species}.UTR.gff
+##### https://github.com/NBISweden/AGAT ######
+/usr/bin/singularity run --bind $PWD:$PWD /01_soft/singularity_all/Agat.sif agat_sp_keep_longest_isoform.pl -gff pep.gff -o ${species}.UTR.gff
 rm pep.gff pep.agat.log
 
 ## get Gene XP XM symbol description
