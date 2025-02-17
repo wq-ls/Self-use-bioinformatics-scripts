@@ -1,4 +1,4 @@
-#!/dellfsqd2/ST_OCEAN/USER/lishuo1/01_software/conda/envs/ragtag/bin/python3.6
+#!/01_software/conda/envs/ragtag/bin/python3.6
 
 """
 MIT License
